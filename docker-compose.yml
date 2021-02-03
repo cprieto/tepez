@@ -1,0 +1,14 @@
+version: '3'
+services:
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - 15672:15672
+  notebook:
+    build:
+      context: .
+    depends_on:
+      - rabbit
+    ports:
+      - 8888:8888
+
